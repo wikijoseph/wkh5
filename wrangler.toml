@@ -8,4 +8,7 @@ site = { bucket = "front/dist" }
 [build]
 # Cloudflare 会在部署前执行这个命令
 # 假设你的前端在 "front" 文件夹
-command = "cd front && npm install && npm run build"
+command = "cd front && pnpm install && pnpm run build"
+[dev]
+local_protocol = "http"
+port = 8787
