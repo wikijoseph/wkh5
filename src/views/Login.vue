@@ -144,14 +144,14 @@
         </div>
 
         <!-- 功能演示链接 -->
-        <div class="mt-4 text-center">
+        <!-- <div class="mt-4 text-center">
           <button
             @click="$router.push('/demo')"
             class="text-okx-blue hover:text-blue-400 text-sm underline"
           >
             查看功能演示
           </button>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>
