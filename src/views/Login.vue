@@ -140,7 +140,6 @@
           <h3 class="text-okx-text font-semibold mb-2">测试账户</h3>
           <div class="space-y-1 text-sm text-okx-text-secondary">
             <div>用户名: admin, 密码: 123456</div>
-            <div>用户名: user1, 密码: password</div>
           </div>
         </div>
 
