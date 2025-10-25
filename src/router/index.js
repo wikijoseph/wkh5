@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from "vue-router";
+import { createRouter, createWebHashHistory } from "vue-router";
 import { useAuthStore } from "../stores/auth";
 import Login from "../views/Login.vue";
 import Home from "../views/Home.vue";
@@ -50,7 +50,7 @@ const routes = [
 ];
 
 const router = createRouter({
-  history: createWebHistory("/wkh5/"), // ✅ GitHub Pages 仓库路径
+  history: createWebHashHistory("/wkh5/"), // ✅ GitHub Pages 仓库路径
   routes,
 });
 
