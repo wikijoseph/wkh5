@@ -10,7 +10,7 @@ import Transactions from "../views/Transactions.vue";
 const routes = [
   {
     path: "/",
-    redirect: "/login",
+    redirect: "/login", // 默认跳转到登录页
   },
   {
     path: "/login",
@@ -23,7 +23,7 @@ const routes = [
     component: Demo,
   },
   {
-    path: "/",
+    path: "/home",
     name: "Home",
     component: Home,
     meta: { requiresAuth: true },
@@ -50,7 +50,7 @@ const routes = [
 ];
 
 const router = createRouter({
-  history: createWebHistory("/wkh5/"),
+  history: createWebHistory("/wkh5/"), // ✅ GitHub Pages 仓库路径
   routes,
 });
 
@@ -61,7 +61,7 @@ router.beforeEach((to, from, next) => {
   if (to.meta.requiresAuth && !authStore.isLoggedIn) {
     next("/login");
   } else if (to.path === "/login" && authStore.isLoggedIn) {
-    next("/");
+    next("/home");
   } else {
     next();
   }
