@@ -4,7 +4,7 @@ import { useLoadingStore } from "@/stores/loading.store";
 
 let requestCount = 0; // 用于记录当前进行中的请求数
 // const targetEndpoint = "https://tokensight.top/api";
-const targetEndpoint = "http://43.133.183.239:7001";
+const targetEndpoint = "https://metacode.top/wh5api";
 
 export class AxiosFactory {
   static repositories = {};

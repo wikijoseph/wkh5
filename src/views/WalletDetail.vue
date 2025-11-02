@@ -57,7 +57,7 @@
         </div> -->
 
       <!-- 统计信息 -->
-      <div class="grid grid-cols-2 gap-4 mb-6">
+      <div v-if="stats" class="grid grid-cols-2 gap-4 mb-6">
         <div class="card p-4">
           <div class="text-okx-text-secondary text-sm">净金额</div>
           <div class="text-lg font-semibold text-okx-red">
