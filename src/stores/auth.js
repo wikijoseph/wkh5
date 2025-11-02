@@ -4,6 +4,7 @@ export const useAuthStore = defineStore("auth", {
   state: () => ({
     currentUser: null,
     isLoggedIn: false,
+    isAuthed: sessionStorage.getItem("authed") === "wh5",
     users: {
       // 默认用户数据
       admin: {
@@ -16,18 +17,7 @@ export const useAuthStore = defineStore("auth", {
             name: "主钱包",
             address: "0x742d35Cc6634C0532925a3b8D4C9db96C4b4d8b6",
             balance: 2.4567,
-            currency: "ETH",
-            type: "ethereum",
             createdAt: "2024-01-15",
-          },
-          {
-            id: 2,
-            name: "交易钱包",
-            address: "0x8ba1f109551bD432803012645Hac136c",
-            balance: 0.1234,
-            currency: "BTC",
-            type: "bitcoin",
-            createdAt: "2024-01-20",
           },
         ],
         dailyReturnRange: { min: 0.05, max: 0.07 },
@@ -58,9 +48,16 @@ export const useAuthStore = defineStore("auth", {
     getUserData: (state) => {
       return (username) => state.users[username] || null;
     },
-    isAuthed: (state) => {
-      return sessionStorage.getItem("authed") === "wh5" || state.isLoggedIn;
-    },
+  },
+
+  persist: {
+    enabled: true, // 开启持久化
+    strategies: [
+      {
+        key: "user_store", // 存储 key
+        storage: sessionStorage,
+      },
+    ],
   },
 
   actions: {

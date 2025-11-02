@@ -4,6 +4,7 @@ import {
   calculateWalletStats,
 } from "../utils/transactionGenerator.js";
 import { AxiosFactory } from "@/core/axios";
+import { useLoadingStore } from "@/stores/loading.store";
 
 export const useTransactionStore = defineStore("transaction", {
   state: () => ({
@@ -60,10 +61,13 @@ export const useTransactionStore = defineStore("transaction", {
       }
     },
     async initializeTransactions() {
+      const loadingStore = useLoadingStore();
+      loadingStore.setLoading(true);
       const repository = AxiosFactory.get();
       const resp = await repository.post("/init");
       this.transactions = { ...resp.data?.transactions };
       this.totalTransactions = { ...resp.data };
+      loadingStore.setLoading(false);
     },
 
     generateDailyTransactions(

@@ -182,7 +182,6 @@ const handleLogin = async () => {
 
   try {
     const success = authStore.login(form.value.username, form.value.password);
-
     if (success) {
       // 初始化用户交易数据
       const user = authStore.currentUser;

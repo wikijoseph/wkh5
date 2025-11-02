@@ -58,9 +58,12 @@ const router = createRouter({
 router.beforeEach((to, from, next) => {
   const authStore = useAuthStore();
 
-  if (to.meta.requiresAuth && !authStore.isAuthed) {
+  if (to.meta.requiresAuth && sessionStorage.getItem("authed") !== "wh5") {
     next("/login");
-  } else if (to.path === "/login" && authStore.isAuthed) {
+  } else if (
+    to.path === "/login" &&
+    sessionStorage.getItem("authed") === "wh5"
+  ) {
     next("/home");
   } else {
     next();
